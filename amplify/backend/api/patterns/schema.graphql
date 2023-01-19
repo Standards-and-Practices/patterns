@@ -1,0 +1,42 @@
+enum PatternType {
+  PATHWAY
+  EXPERIENCE
+  ACTIVITY
+  LAYOUT
+  XBLOCK
+}
+
+enum LifecycleStatus {
+  PROPOSED
+  DRAFT
+  STANDARD
+  BESTCURRENTPRACTICE
+  EXPERIMENTAL
+  HISTORIC
+  INFORMATIONAL
+}
+
+type Pattern @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  url: AWSURL
+  name: String
+  problem: String
+  context: String
+  structure: String
+  contraindications: [String]
+  examples: [AWSJSON]
+  references: [AWSJSON]
+  forces: [String]
+  alsoKnowAs: [String]
+  applicability: [String]
+  status: LifecycleStatus
+  author: [String]
+  DOI: String
+  history: [AWSJSON]
+  parentOf: [Pattern] @hasMany
+  childOf: Pattern @belongsTo
+  supercedes: [Pattern] @hasMany
+  patternType: PatternType
+  documentation: String
+}
+ 
