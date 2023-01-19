@@ -18,7 +18,6 @@ export default function BasicLayoutTemplate(props) {
       height="unset"
       justifyContent="flex-start"
       alignItems="flex-start"
-      overflow="hidden"
       position="relative"
       borderRadius="8px"
       padding="0px 0px 0px 0px"
@@ -35,6 +34,7 @@ export default function BasicLayoutTemplate(props) {
         alignItems="flex-start"
         shrink="0"
         position="relative"
+        borderRadius="8px 8px 0px 0px"
         padding="8px 16px 8px 16px"
         backgroundColor="rgba(0,48,87,1)"
         {...getOverrideProps(overrides, "Header")}
